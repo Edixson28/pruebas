@@ -1,0 +1,154 @@
+package vistaCelular;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
+
+public class vistaTelefono extends JDialog {
+
+	private JLabel lblVtelca,lblMovilnet,lblLlamar,lblColgar,
+					lblMarca;
+	private JPanel panelVisor,panelAux,panelAux2,panelBotones;
+	private JTextArea txtVisor;
+	private JButton btnBotonMulti,btnBotonAceptar,btnBotonDel,
+					btnBoton1,btnBoton2,btnBoton3,
+					btnBoton6,btnBoton5,btnBoton4,
+					btnBoton7,btnBoton8,btnBoton9,
+					btnBotonAst,btnBoton0,btnBotonNum;
+	
+	public vistaTelefono(){
+		//inicializar
+		
+		lblVtelca=new JLabel("Vtelca");
+		lblMovilnet=new JLabel("Movilnet");
+		txtVisor=new JTextArea(4,20);
+		lblLlamar=new JLabel("    ]    ");
+		lblColgar=new JLabel("    [    ");
+		lblMarca=new JLabel("UNERG");
+		
+		btnBotonMulti=new JButton("M");
+		btnBotonAceptar=new JButton("Ok");
+		btnBotonDel=new JButton("C");
+		btnBoton1=new JButton("1");
+		btnBoton2=new JButton("2");
+		btnBoton3=new JButton("3");
+		btnBoton4=new JButton("4");
+		btnBoton5=new JButton("5");
+		btnBoton6=new JButton("6");
+		btnBoton7=new JButton("7");
+		btnBoton8=new JButton("8");
+		btnBoton9=new JButton("9");
+		btnBotonAst=new JButton("*");
+		btnBoton0=new JButton("0");
+		btnBotonNum=new JButton("#");
+		
+		//---------->ensamblar visor<------------
+		
+		panelVisor=new JPanel(new BorderLayout());
+		
+		//etiqueta vTelca
+		panelAux=new JPanel();
+		panelAux.add(lblVtelca);
+		
+		panelVisor.add(panelAux,BorderLayout.NORTH);
+		
+		//pantalla del visor
+		panelAux=new JPanel();
+		panelAux2=new JPanel();
+		panelAux.setBorder(new LineBorder
+				(Color.RED,2,true));
+
+		panelAux.add(txtVisor);
+		panelAux2.add(panelAux);
+		panelVisor.add(panelAux2,BorderLayout.CENTER);
+		//etiqueta
+		panelAux=new JPanel();
+		
+		panelAux.add(lblMovilnet);
+		panelVisor.add(panelAux,BorderLayout.SOUTH);
+		
+		//---------->ensamblar botones<------------
+		panelBotones=new JPanel(new BorderLayout());
+		
+		//linea 1
+		
+		panelAux2=new JPanel(new BorderLayout());
+		
+		panelAux=new JPanel();
+		panelAux.add(btnBotonMulti);
+		panelAux.add(btnBotonAceptar);
+		panelAux.add(btnBotonDel);
+		
+		
+		panelAux2.add(panelAux,BorderLayout.NORTH);
+		
+		
+		//linea 2		
+		panelAux=new JPanel();
+		panelAux.add(lblLlamar);
+		panelAux.add(lblColgar);
+		
+		panelAux2.add(panelAux,BorderLayout.SOUTH);
+		
+		
+		
+		panelBotones.add(panelAux2,BorderLayout.NORTH);
+		
+		
+		//linea 3 puro botones
+		panelAux=new JPanel(new GridLayout(4,3));
+		panelAux2=new JPanel();
+		
+		panelAux.add(btnBoton1);
+		panelAux.add(btnBoton2);
+		panelAux.add(btnBoton3);
+		panelAux.add(btnBoton4);
+		panelAux.add(btnBoton5);
+		panelAux.add(btnBoton6);
+		panelAux.add(btnBoton7);
+		panelAux.add(btnBoton8);
+		panelAux.add(btnBoton9);
+		panelAux.add(btnBotonAst);
+		panelAux.add(btnBoton0);
+		panelAux.add(btnBotonNum);
+		
+		panelAux2.add(panelAux);
+		panelBotones.add(panelAux2,BorderLayout.CENTER);
+		
+		//linea 4 marca
+		panelAux=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		panelAux.add(lblMarca);
+		panelBotones.add(panelAux,BorderLayout.SOUTH);
+		//ensamblar telefono
+		
+		
+		
+	this.add(panelVisor,BorderLayout.NORTH);
+		this.add(panelBotones,BorderLayout.CENTER);
+		this.pack();
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+		
+		
+		
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		new vistaTelefono();
+
+	}
+
+}
