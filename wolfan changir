@@ -1,0 +1,141 @@
+package banco;
+
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
+
+
+
+
+
+public class Banco extends JFrame {
+	private JPanel panelVisor,panelVisor1,panelPantalla,
+	panelAux,panelBotones,panelMarca;
+	private JTextArea txtVisor;
+	private JButton btnBoton7,btnBoton8,btnBoton9,
+			        btnBoton4,btnBoton5,btnBoton6,
+			        btnBoton1,btnBoton2,btnBoton3,
+			        btnBotonBorrar,btnBotonEnter,
+			        btnBotonDepositar,btnBotonRetirar;
+	private JLabel lblMarca;
+
+	public Banco(){
+		//inicializar objetos
+		txtVisor=new JTextArea(3,20);
+		lblMarca=new JLabel("UNERG");
+		//botones
+		btnBoton7=new JButton("7");
+		btnBoton8=new JButton("8");
+		btnBoton9=new JButton("9");
+		
+		
+		btnBoton4=new JButton("4");
+		btnBoton5=new JButton("5");
+		btnBoton6=new JButton("6");
+		
+		btnBoton1=new JButton("1");
+		btnBoton2=new JButton("2");
+		btnBoton3=new JButton("3");
+	    
+		btnBotonBorrar=new JButton("Borrar");
+		btnBotonEnter=new JButton("Enter");
+		
+		btnBotonDepositar=new JButton("Depositar");
+		btnBotonRetirar=new  JButton("Retirar"); 
+		
+		
+		//definir panel visor y ensamblar
+		panelVisor=new JPanel();
+		panelPantalla=new JPanel();
+		panelVisor.setBorder(new TitledBorder("BANCO UNERG"));
+		panelVisor1=new JPanel();
+		panelAux=new JPanel();
+		panelPantalla=new JPanel();
+		
+		panelPantalla.setBorder
+		(new LineBorder(Color.BLUE,1,true));
+panelPantalla.add(txtVisor);
+		
+		panelVisor.add(panelPantalla);
+		
+//ensamblar panelBotones
+		
+		panelBotones=new JPanel(new GridLayout(4,3));
+		
+		//linea 1
+		
+		panelBotones.add(btnBoton7);
+		panelBotones.add(btnBoton8);
+		panelBotones.add(btnBoton9);
+	
+
+		//linea 2
+	
+		panelBotones.add(btnBoton4);
+		panelBotones.add(btnBoton5);
+		panelBotones.add(btnBoton6);
+		
+		
+		//linea 3
+		
+		panelBotones.add(btnBoton1);
+		panelBotones.add(btnBoton2);
+		panelBotones.add(btnBoton3);
+		
+        //Linea 4
+		panelBotones.add(btnBotonBorrar);
+		panelBotones.add(btnBotonEnter);
+		
+		panelAux=new JPanel();
+		panelAux.setBorder 
+		(new LineBorder(Color.GREEN,2,true));
+		panelAux.add(panelBotones);
+		
+		
+		
+	    //Linea 5
+		panelVisor1=new JPanel(new GridLayout(1,2));
+		
+		panelVisor1.add(btnBotonDepositar);
+		panelVisor1.add(btnBotonRetirar);
+		
+		panelPantalla=new JPanel();
+		panelVisor1.setBorder 
+		(new LineBorder(Color.GREEN,2,true));
+		panelAux.add(panelPantalla);
+		
+		panelAux.add(panelVisor);
+		
+		
+//panel Marca
+		
+		panelMarca=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		panelMarca.add(lblMarca);
+		
+		//Banco
+		this.add(panelVisor,BorderLayout.EAST);
+		this.add(panelAux,BorderLayout.CENTER);
+		this.add(panelMarca,BorderLayout.SOUTH);
+		
+		//this.setSize(300, 270);
+		this.pack();
+		this.setLocationRelativeTo(null);
+		this.setVisible(true);
+		
+	}
+	public static void main(String[] args) {
+		new Banco();
+
+	}
+
+}
